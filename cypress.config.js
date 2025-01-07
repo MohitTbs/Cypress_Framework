@@ -8,7 +8,7 @@ module.exports = defineConfig({
   viewportWidth: 600,
   
   // defaultCommandTimeout change in ms
-  defaultCommandTimeout:2000
+  defaultCommandTimeout:10000
   
   // retry logic -- openMode: when using cypress dashboard, runMode: using commamd Line
  retries:{openMode: 2,runMode:1}
@@ -16,7 +16,7 @@ module.exports = defineConfig({
  //video: true,
  reporter: 'cypress-mochawesome-reporter',
  chromeWebSecurity: false,
-
+ defaultCommandTimeout:10000,
 
   e2e: {
 

@@ -22,6 +22,12 @@ class LoginPage {
     get_invalid_cred_msg(){
         return cy.xpath(this.pageElements.invalid_credentials_text).invoke('text')
     }
+
+    do_login(username, password){
+        this.enter_username(username)
+        this.enter_password(password)
+        this.click_on_login_btn()
+    }
 }
 
 module.exports = LoginPage;
