@@ -8,7 +8,10 @@ class AdminPage {
         employee_name_textbox: "//label[text()='Employee Name']/../following-sibling::div//input",
         search_button: "//button[normalize-space()='Search']",
         found_records: "//div[@class='orangehrm-paper-container']/div[2]/div/span",
-        add_button: "//button[normalize-space()='Add']"
+        add_button: "//button[normalize-space()='Add']",
+        trash_icons: "i.oxd-icon.bi-trash",
+        yes_delete_button: "//button[normalize-space()='Yes, Delete']",
+        delete_success_msg: "//p[text()='Successfully Deleted']"
 
     }
 
@@ -58,6 +61,18 @@ class AdminPage {
 
     click_on_add_button(){
         cy.xpath(this.pageElement.add_button).click()
+    }
+
+    click_on_trash_icon(){
+        cy.get(this.pageElement.trash_icons).last().click()
+    }
+
+    click_on_yes_delete_button(){
+        cy.xpath(this.pageElement.yes_delete_button).click()
+    }
+
+    get_delete_success_msg(){
+        return cy.xpath(this.pageElement.delete_success_msg).invoke('text')
     }
 }
 

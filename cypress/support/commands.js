@@ -23,3 +23,18 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('deleteFile', (filePath) => {
+    //const os = process.platform;
+    const platformName = navigator.userAgentData.platform  //['Windows', 'macOS', 'Linux']
+    // cy.exec(`del ${filePath}`);
+
+    if (platformName === 'Windows') {
+        cy.exec(`del ${filePath}`);
+    } else if (platformName === 'macOS') {
+        cy.exec(`rm ${filePath}`);
+    }
+
+
+
+});

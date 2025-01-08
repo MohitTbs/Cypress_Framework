@@ -23,6 +23,8 @@ module.exports = defineConfig({
     baseUrl: 'https://opensource-demo.orangehrmlive.com',
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+      require('./setup.js'); 
+      return config;
     },
   },
 });

@@ -54,9 +54,22 @@ describe("Verify the Admin functionality", () => {
         add_user_page.get_success_msg().then(text => {
             expect(text).equal('Successfully Saved')
         })
-        cy.wait(5000)
     });
 
+    it('Delete a user', () => {
+        cy.visit('')
+        const login_page = new LoginPage()
+        login_page.do_login('Admin', 'admin123')
+        cy.wait(2000)
+        const dashboard_page = new DashboardPage()
+        dashboard_page.click_on_admin_menu()
+        cy.wait(2000)
+        const admin_page = new AdminPage()
+        admin_page.click_on_trash_icon()
+        admin_page.click_on_yes_delete_button()
+        admin_page.get_delete_success_msg().then(text => {
+            expect(text).equal('Successfully Deleted')
+        })
+    })
+
 })
-
-

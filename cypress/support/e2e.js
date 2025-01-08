@@ -19,3 +19,39 @@ import './commands'
 import 'cypress-mochawesome-reporter/register';
 
 require('cypress-xpath');
+
+import { logger, removeFiles } from '../utilities/utils';
+
+
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from failing the test
+  /*
+    if(err.message.includes('Unexpected token')){
+      console.log('Application Error Javascript Token');
+      return false;
+    }  // for this return true;
+    */
+  return false;
+});
+
+before(() => {
+
+  //cy.deleteFile('.\\Logging\\logs.log')
+
+})
+
+
+
+beforeEach(() => {
+  logger('Inside test: ' + Cypress.currentTest.titlePath + ' ' + new Date())
+})
+
+
+afterEach(() => {
+  //logger(this.currentTest.state)
+
+  //it will tell you status as passed or failed
+  //You only need to integrate mocha plugin with the cypress project.
+  logger(Cypress.currentTest.titlePath + ' ' + Cypress.mocha.getRunner().suite.ctx.currentTest.state + '--' + new Date())
+})

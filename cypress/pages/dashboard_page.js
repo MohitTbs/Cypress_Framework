@@ -2,7 +2,8 @@ class DashboardPage {
 
     pageElement = {
         dashboardHeader: "//header//*[text()='Dashboard']",
-        admin_menu: "//ul[@class='oxd-main-menu']//span[text()='Admin']"
+        admin_menu: "//ul[@class='oxd-main-menu']//span[text()='Admin']",
+        directory_menu: "//a/span[text()='Directory']"
     }
 
     
@@ -14,6 +15,10 @@ class DashboardPage {
 
     click_on_admin_menu(){
         cy.xpath(this.pageElement.admin_menu).click()
+    }
+
+    click_on_directory_menu(){
+        cy.xpath(this.pageElement.directory_menu).click()
     }
 }
 
