@@ -10,9 +10,9 @@
   "scripts": {
     
     "all": "npx cypress run --headless",
-    "clean": "rimraf cypress/reports",
+    "clean": "rmdir \"cypress/reports\" /s /q",
     "cy:parallel": "cypress-parallel -s all -t 2 -d 'cypress/e2e/**/*.cy.js' -r 'cypress-mochawesome-reporter' -o 'cypressParallel=true'",
     "generate-report": "generate-mochawesome-report",
-    "test": "npm run cy:parallel && npm run generate-report"
+    "test": "npm run clean && npm run cy:parallel && npm run generate-report"
   }
 }
