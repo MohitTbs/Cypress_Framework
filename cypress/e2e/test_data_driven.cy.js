@@ -2,7 +2,7 @@ import LoginPage from "../pages/login_page";
 import DashboardPage from "../pages/dashboard_page";
 import testdata from '../fixtures/testdata.json'
 
-describe("Verify the Login functionality", () => {
+describe("Verify the Login functionality with data driven approach", () => {
 
     testdata.forEach((data) => {
         it('Invalid Login Test', () => {

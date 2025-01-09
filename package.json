@@ -3,5 +3,16 @@
     "cypress": "^13.17.0",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-xpath": "^2.0.1"
+  },
+  "dependencies": {
+    "cypress-parallel": "^0.14.0"
+  },
+  "scripts": {
+    
+    "all": "npx cypress run --headless",
+    "clean": "rimraf cypress/reports",
+    "cy:parallel": "cypress-parallel -s all -t 2 -d 'cypress/e2e/**/*.cy.js' -r 'cypress-mochawesome-reporter' -o 'cypressParallel=true'",
+    "generate-report": "generate-mochawesome-report",
+    "test": "npm run cy:parallel && npm run generate-report"
   }
 }
